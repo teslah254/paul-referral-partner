@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla | Professional Referral Partner</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .stats {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .partner-logo {
+            height: 60px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+        }
+        
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Tesla<span>Referrals</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Tesla | Professional Referral Partner</h1>
+            <p>Strategic referral partnerships that drive growth through targeted connections and relationship-building expertise.</p>
+            <a href="#contact" class="btn">Partner With Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Healthcare professional turned referral marketing expert with a unique approach to partnership growth</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>From Healthcare to Strategic Partnerships</h3>
+                    <p>As a Nursing Graduate from Mount Kenya University, I've developed exceptional skills in communication, empathy, and meticulous attention to detail - qualities that translate perfectly into building successful referral partnerships.</p>
+                    <p>My healthcare background has equipped me with a unique perspective on relationship-building and trust establishment, which I now apply to creating sustainable, high-converting referral pipelines for businesses across various industries.</p>
+                    <p>I specialize in connecting businesses with their ideal customers through strategic referral networks, combining data-driven insights with relationship-building to create partnerships that benefit all parties involved.</p>
+                    <p>My expertise includes program optimization, partner onboarding, performance tracking, and relationship management to ensure long-term partnership success and measurable ROI for all stakeholders.</p>
+                </div>
+                <div class="about-image">
+                    
+                    
+                    
+                    <img src="https://github.com/teslah254/image.git" alt="Tesla - Professional Referral Partner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Comprehensive referral partnership solutions tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Strategic Partner Identification</h3>
+                    <p>I identify and connect with high-value partners who align with your target audience and business objectives to maximize referral potential.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Tracking & Optimization</h3>
+                    <p>Implementing robust tracking systems to monitor referral performance and continuously optimize partnership strategies for maximum ROI.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Partner Relationship Management</h3>
+                    <p>Building and maintaining strong relationships with referral partners through regular communication, support, and performance feedback.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Program Launch & Scaling</h3>
+                    <p>From initial setup to scaling successful programs, I ensure smooth implementation and growth of your referral partnership initiatives.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Compliance & Best Practices</h3>
+                    <p>Ensuring all referral activities comply with platform policies and industry regulations while implementing proven best practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-analytics"></i>
+                    </div>
+                    <h3>Reporting & Analytics</h3>
+                    <p>Providing detailed performance reports with actionable insights to help you understand program effectiveness and areas for improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Successful Partnerships</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$500K+</h3>
+                    <p>Revenue Generated</p>
+                </div>
+                <div class="stat-item">
+                    <h3>92%</h3>
+                    <p>Partner Satisfaction Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2.8x</h3>
+                    <p>Average ROI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Partner With Me</h2>
+                <p>Why choose me as your referral partner for PartnerStack programs</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Healthcare Precision Meets Marketing Strategy</h3>
+                    <p>My background in nursing has instilled in me a methodical, detail-oriented approach that I apply to every partnership. I understand that successful referral programs require the same precision and care as healthcare - attention to detail, clear communication, and measurable outcomes.</p>
+                    <p>I have developed expertise in working with PartnerStack and similar partner management platforms, understanding the nuances of program setup, tracking, and optimization.</p>
+                    <p>My approach ensures that your referral program is structured for success from day one, with:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>Strategic partner identification and targeted outreach</li>
+                        <li>Data-driven program performance optimization</li>
+                        <li>Rigorous compliance with platform policies</li>
+                        <li>Transparent, regular performance reporting</li>
+                        <li>Long-term relationship building and maintenance</li>
+                    </ul>
+                    <p>I'm looking to partner with companies that value quality referrals and are committed to building mutually beneficial, long-term relationships with their partners.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Partnership Collaboration">
+                </div>
+            </div>
+            <div class="partners-logos">
+                <img src="https://via.placeholder.com/150x60/3498db/ffffff?text=HealthTech" alt="HealthTech" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60/e74c3c/ffffff?text=MediSolutions" alt="MediSolutions" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60/2ecc71/ffffff?text=WellnessApp" alt="WellnessApp" class="partner-logo">
+                <img src="https://via.placeholder.com/150x60/f39c12/ffffff?text=CarePlatform" alt="CarePlatform" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>What partners say about working with me</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Tesla's healthcare background brings a unique level of precision and care to partnership management. His attention to detail and strategic approach has significantly improved our referral program performance."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Kimani">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Kimani</h4>
+                            <p>Partnership Director, HealthTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Working with Paul has been transformative. His methodical approach and relationship-building skills have helped us establish partnerships that deliver consistent, high-quality referrals month after month."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Grace Mwangi">
+                        </div>
+                        <div class="author-info">
+                            <h4>Grace Mwangi</h4>
+                            <p>Head of Growth, MediInnovate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Tesla understands the importance of trust in partnerships. His healthcare background shines through in how he manages relationships - with care, transparency, and a focus on mutual success."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael Ochieng">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Ochieng</h4>
+                            <p>CEO, WellnessPlatform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to discuss how we can work together? Reach out today</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Partner Up</h3>
+                    <p>I'm always interested in exploring new partnership opportunities with companies that value quality referrals and long-term relationships.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>pauljohns255@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+254 111 292 634</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Based in Kenya</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Available for new partnerships</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@its_t.e.s.l.a?_r=1&_t=ZM-91kT6IAWx7E" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/its_t.e.s.l.a?igsh=MXZnc2U0cjh0ZGJtcg%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tesla Referrals</h3>
+                    <p>Professional referral partnership services specializing in PartnerStack programs and strategic business growth through qualified referrals.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Strategic Partner Identification</a></li>
+                        <li><a href="#">Performance Tracking</a></li>
+                        <li><a href="#">Partner Relationship Management</a></li>
+                        <li><a href="#">Program Launch & Scaling</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@its_t.e.s.l.a?_r=1&_t=ZM-91kT6IAWx7E" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/its_t.e.s.l.a?igsh=MXZnc2U0cjh0ZGJtcg%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tesla | Professional Referral Partner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message, Paul will get back to you soon!');
+            this.reset();
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
